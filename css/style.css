@@ -55,8 +55,7 @@ a {text-decoration: none;}
 	background-color:#06f;
 }
 
-.demo-container > input:checked + a:after,
-.demo-container > input:hover + a:after{
+.demo-container > input:checked + a:after{
 	width:0;height:0;content:"";border:20px solid transparent;
 	border-bottom-color:#06f;position: absolute;bottom:100%;left:50%;margin-left:-20px;
 }
