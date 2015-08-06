@@ -1,9 +1,126 @@
 $blue : #09f;
+$yellow : #ff0;
 $width : 100px;
 $height : 100px;
+$mt10 : 10px auto;
 
 div {
+	margin : $mt10;
 	width : $width;
 	height : $height;
 	background : $blue;
+}
+
+
+$side : left;
+
+.bordered {
+	border : 3px solid transparent;
+	border-#{$side}-color : $yellow;
+}
+
+
+div {
+	span {
+	    width : 80px;
+	    height : 80px;
+	    display : block;
+	    background : #aaf;
+	}
+}
+
+div {
+	a {
+		/*!
+		  	this is an important comment
+		 */
+		&:hover{
+			color : #f40;
+		}
+	}
+}
+
+// use extend command
+.div1 {
+	width : 200px;
+	height : 100px;
+	background : $blue;
+}
+
+.div2 {
+	@extend .div1;
+	background : #f40;
+}
+
+@mixin prefixTransform($property) {
+	transform : $property;
+	-webkit-transform : $property;
+	-moz-transform : $property;
+	-o-transform : $property;
+	-ms-transform : $property;
+}
+
+@mixin prefixTransition($property:all, $time:2s, $effect:ease-in-out) {
+	transition : $property $time $effect;
+	-webkit-transition : $property $time $effect;
+	-moz-transition : $property $time $effect;
+	-o-transition : $property $time $effect;
+	-ms-transition : $property $time $effect;
+}
+
+.div3 {
+	@include prefixTransition();
+}
+.div3 {
+	&:hover{
+		@include prefixTransform(rotate(360deg));
+	}
+}
+
+/*!
+	Advanced scss usage
+ */
+
+
+$color : #09f;
+p {	
+	height : 20px;
+	@if 1 == 1 { border : 1px solid #ccc;}
+	@if 4 < 5 { border : 2px dotted $yellow;}
+
+	@if lightness($color) > 30% {
+	    background : #000;
+	} @else {
+		background : #fff;
+	}
+}
+
+// [1, 11)
+@for $i from 1 to 11 {
+	.border-#{$i} {
+		border: #{$i}px solid $yellow;
+	}
+}
+// also support while and else statement
+$i : 6;
+@while $i > 0 {
+	.item-#{$i} {
+		background : url(images/#{$i}.png) center no-repeat;
+		$i: $i - 2;
+	}
+}
+
+@each $member in a, b, c, d {
+	.member-#{$member} {
+		background : url(images/#{$member}.jpg) center no-repeat;
+	}
+}
+// SDF
+
+@function triple ($n) {
+	@return $n * 3;
+}
+
+#sidebar {
+	width : triple(10px);
 }

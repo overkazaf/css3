@@ -1,6 +1,61 @@
-div {
-  width: 100px;
-  height: 100px;
-  background: #09f; }
+div { margin: 10px auto; width: 100px; height: 100px; background: #09f; }
+
+.bordered { border: 3px solid transparent; border-left-color: #ff0; }
+
+div span { width: 80px; height: 80px; display: block; background: #aaf; }
+
+div a { /*!
+  	this is an important comment
+ */ }
+div a:hover { color: #f40; }
+
+.div1, .div2 { width: 200px; height: 100px; background: #09f; }
+
+.div2 { background: #f40; }
+
+.div3 { transition: all 2s ease-in-out; -webkit-transition: all 2s ease-in-out; -moz-transition: all 2s ease-in-out; -o-transition: all 2s ease-in-out; -ms-transition: all 2s ease-in-out; }
+
+.div3:hover { transform: rotate(360deg); -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -o-transform: rotate(360deg); -ms-transform: rotate(360deg); }
+
+/*!
+	Advanced scss usage
+ */
+p { height: 20px; border: 1px solid #ccc; border: 2px dotted #ff0; background: #000; }
+
+.border-1 { border: 1px solid #ff0; }
+
+.border-2 { border: 2px solid #ff0; }
+
+.border-3 { border: 3px solid #ff0; }
+
+.border-4 { border: 4px solid #ff0; }
+
+.border-5 { border: 5px solid #ff0; }
+
+.border-6 { border: 6px solid #ff0; }
+
+.border-7 { border: 7px solid #ff0; }
+
+.border-8 { border: 8px solid #ff0; }
+
+.border-9 { border: 9px solid #ff0; }
+
+.border-10 { border: 10px solid #ff0; }
+
+.item-6 { background: url(images/6.png) center no-repeat; }
+
+.item-4 { background: url(images/4.png) center no-repeat; }
+
+.item-2 { background: url(images/2.png) center no-repeat; }
+
+.member-a { background: url(images/a.jpg) center no-repeat; }
+
+.member-b { background: url(images/b.jpg) center no-repeat; }
+
+.member-c { background: url(images/c.jpg) center no-repeat; }
+
+.member-d { background: url(images/d.jpg) center no-repeat; }
+
+#sidebar { width: 30px; }
 
 /*# sourceMappingURL=demo.css.map */
