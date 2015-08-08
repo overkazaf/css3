@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/jquery-1.9.1-min.js"></script>
+	<style type="text/css">
+		* {margin:0;padding:0;}
+		.container {
+			width:600px;margin: 40px auto;
+		}
+
+		.slideUp {
+			position: relative;
+			width:100%;
+			height:400px;
+			overflow:hidden;
+		}
+
+		.slideUp .list {
+			position: absolute;left:0;top:0;width:100%;
+		}
+
+		.slideUp .list li.list-item{
+			width:100%;height:80px;line-height: 80px;border-bottom:1px solid #ccc;
+		}
+
+		.slideUp .list li.list-item:nth-child(3n-1){background:#09f;}
+		.slideUp .list li.list-item:nth-child(3n-2){background:#40f;}
+		.slideUp .list li.list-item:nth-child(3n){background:#2cf;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="slideUp">
+			<ul class="list">
+				<li class="list-item">01</li>
+				<li class="list-item">02</li>
+				<li class="list-item">03</li>
+				<li class="list-item">04</li>
+				<li class="list-item">05</li>
+				<li class="list-item">06</li>
+				<li class="list-item">07</li>
+				<li class="list-item">08</li>
+				<li class="list-item">09</li>
+				<li class="list-item">10</li>
+			</ul>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/slideUp.js"></script>
+	<script type="text/javascript">
+		$(function (){
+			$('.slideUp').each(function (){
+				$(this).slideUp({
+
+				});
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		.container{width:900px;height:32px;margin:0 auto;position: relative;}
+		.menu {width:100%;height:100%;margin:0;padding:0;list-style-type: none;position: absolute;left:0;top:0;z-index: 2;}
+		.menu li.menu-item{width:120px;height:32px;line-height: 32px;color:#000;text-align: center;float:left;cursor:pointer;}
+
+		p.cursor {width:120px;height:32px;background:#09f;position: absolute;left:0;top:0;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="menu">
+			<li class="menu-item"><a href="http://www.google.com">Menu 1</a></li>
+			<li class="menu-item"><a href="http://www.baidu.com">Menu 2</a></li>
+			<li class="menu-item">Menu 3</li>
+			<li class="menu-item">Menu 4</li>
+			<li class="menu-item">Menu 5</li>
+		</ul>
+		<p class="cursor"></p>
+	</div>
+</body>
+<script type="text/javascript">
+	window.onload = function (){
+		var oP = document.getElementsByTagName('p')[0];
+		var oUl = document.getElementsByTagName('ul')[0];
+		var aLi = oUl.getElementsByTagName('li');
+		oUl.addEventListener('mouseover', function (e){
+			var target = e.target || e.srcElement;
+			if (target.tagName.toLowerCase() == 'li'){
+				move(oP, {'left': target.offsetLeft});
+			}
+		});
+	}
+
+	function move(obj, json){
+		if (obj.timer)clearInterval(obj.timer);
+		obj.timer = setInterval(function (){
+			var stop = true;
+			for (var attr in json) {
+				var target =  json[attr];
+				var cur = css(obj, attr);
+				if (cur != target) {
+					stop = false;
+
+					var speed = 0;
+					console.log(cur, target);
+					speed = (target - cur)/5;
+					css(obj, attr, cur+speed);
+				}
+			}
+
+			if(stop) {
+				clearInterval(obj.timer);
+				obj.timer = null;
+			}
+		}, 33);
+	}
+
+	function css(obj, attr, val){
+	if (arguments.length == 2) {
+		return parseFloat(obj.currentStyle ? obj.currentStyle[attr] : document.defaultView.getComputedStyle(obj, null)[attr]);
+	} else {
+		switch (attr){
+			case 'width':
+			case 'height':
+			case 'padding-left':
+			case 'padding-right':
+			case 'padding-bottom':
+			case 'padding-top':
+				val = Math.max(val, 0);
+			case 'left':
+			case 'top':
+			case 'margin-left':
+			case 'margin-right':
+			case 'margin-top':
+			case 'margin-bottom':
+				obj.style[attr] = val + 'px';
+				break;
+			case 'opacity':
+				obj.style.opacity = val;
+				obj.style.filter = 'alpha(opacity:'+(val*100)+')';
+				break;
+			default : 
+				obj.style[attr] = val;
+		}
+
+		return function (attr_in, attr_val){css(obj, attr_in, attr_val);};
+	}
+}
+
+</script>
+</html>

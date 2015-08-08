@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {margin : 0; padding : 0;}
+		html,body {background : #2b2b2b;}
+		.ball {
+			position : absolute; left : 15%;top : 4%;
+			width : 2px; height : 2px; border-radius:50%;
+			background : #fff; 
+			box-shadow : 0px 0px 10px 10px white;
+
+			animation : randomMove 50s infinite;
+			-webkit-animation : randomMove 50s infinite;
+		}
+
+		@keyframes randomMove {
+			0% {left: 15%; top : 4%;}
+			5% {left: 16%; top : 63%;}
+			15% {left: 51%; top : 4%;}
+			25% {left: 15%; top : 78%;}
+			35% {left: 85%; top : 2%;}
+			45% {left: 16%; top : 45%;}
+			55% {left: 58%; top : 3%;}
+			65% {left: 65%; top : 97%;}
+			75% {left: 7%; top : 1%;}
+			85% {left: 25%; top : 71%;}
+			95% {left: 65%; top : 44%;}
+			100% {left: 15%; top : 4%;}
+		}
+
+		@-webkit-keyframes randomMove {
+			0% {left: 15%; top : 4%;}
+			5% {left: 16%; top : 63%;box-shadow : 0px 0px 50px 50px white;}
+			15% {left: 51%; top : 4%;box-shadow : 0px 0px 5px 10px white;}
+			25% {left: 15%; top : 78%;box-shadow : 0px 4px 10px 30px white;}
+			35% {left: 85%; top : 2%;box-shadow : 0px 4px 10px 30px white;}
+			45% {left: 16%; top : 45%;box-shadow : 0px 4px 10px 30px white;}
+			55% {left: 58%; top : 3%;box-shadow : 0px 4px 10px 30px white;}
+			65% {left: 65%; top : 97%;box-shadow : 0px 4px 10px 30px white;}
+			75% {left: 7%; top : 1%; box-shadow : 0px 30px 0px 40px white;}
+			85% {left: 25%; top : 71%;box-shadow : 5px 0px 10px 0px white;}
+			95% {left: 65%; top : 44%;box-shadow : 0px 4px 30px 30px white;}
+			100% {left: 15%; top : 4%;box-shadow : 0px 10px 100px 40px white;}
+		}
+	</style>
+</head>
+<body>
+	<div class="ball"></div>
+</body>
+</html>

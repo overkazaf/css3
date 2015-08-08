@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box {
+			position: absolute;left:0;top:0;
+			width:100px;height:100px;background:#ff0;
+			transform: translate(100px, 200px);
+		}
+
+
+		.skew {
+			left:100px;top:50px;
+			transform:skew(20deg, 30deg);
+			-webkit-transform:skew(20deg, 30deg);
+		}
+
+		.matrix {
+			transform:matrix(0.866,0.5,-0.5,0.866,0,0);
+			-ms-transform:matrix(0.866,0.5,-0.5,0.866,0,0);		/* IE 9 */
+			-moz-transform:matrix(0.866,0.5,-0.5,0.866,0,0);	/* Firefox */
+			-webkit-transform:matrix(0.866,0.5,-0.5,0.866,0,0);	/* Safari and Chrome */
+			-o-transform:matrix(0.866,0.5,-0.5,0.866,0,0);		/* Opera */
+		}
+
+		.rotate {
+
+			left : 200px;top:50px;background: #f00;
+			transform: rotate(120deg, 130deg);
+			-webkit-transform: rotate(120deg, 130deg);	/* Safari 和 Chrome */
+			-moz-transform: rotate(120deg, 130deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+
+	<div class="box skew"></div>
+
+	<div class="box matrix"></div>
+	<div class="box rotate"></div>
+</body>
+</html>
