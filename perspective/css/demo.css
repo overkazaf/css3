@@ -1,0 +1,14 @@
+* { margin: 0; padding: 0; }
+
+ul { list-style-type: none; }
+
+.container { width: 600px; margin: 20px auto; }
+.container .comment { position: relative; width: 100%; }
+.container .comment .comment-list { position: absolute; left: 0; top: 0; width: 100%; height: auto; }
+.container .comment .comment-list li.comment-list-item { position: relative; width: 100%; height: 180px; perspective: 1800px; -webkit-perspective: 1800px; }
+.container .comment .comment-list li.comment-list-item section { box-sizing: border-box; -webkit-box-sizing: border-box; padding: 10px; }
+.container .comment .comment-list li.comment-list-item .top, .container .comment .comment-list li.comment-list-item .bottom { position: absolute; left: 0; width: 100%; height: 90px; }
+.container .comment .comment-list li.comment-list-item .top { transform: rotateX(40deg); -webkit-transform: rotateX(40deg); top: 3px; background: #aaf; }
+.container .comment .comment-list li.comment-list-item .bottom { transform: rotateX(320deg); -webkit-transform: rotateX(320deg); bottom: 3px; background: #eef; }
+
+/*# sourceMappingURL=demo.css.map */

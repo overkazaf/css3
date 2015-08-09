@@ -1,0 +1,55 @@
+$width : 600px;
+$perspective : 1800px;
+$contHeight : 180px;
+$topDeg : 40deg;
+$fixOffset : 3px;
+
+* {margin : 0;padding:0}
+ul {list-style-type: none;}
+
+.container {
+	width : $width;
+	margin : 20px auto;
+
+	.comment {
+		position: relative;
+		width : 100%;
+		.comment-list {
+			position: absolute;
+			left : 0; top:0;
+			width:100%;height:auto;
+			li.comment-list-item {
+				position : relative;
+				width : 100%;
+				height : $contHeight;
+				perspective : $perspective;
+				-webkit-perspective : $perspective;
+				
+				section {
+					box-sizing:border-box;
+					-webkit-box-sizing:border-box;
+					padding:10px;
+				}
+
+				.top, .bottom {
+					position : absolute;
+					left : 0;
+					width : 100%; 
+					height : $contHeight / 2;
+				}
+
+				.top {
+					transform : rotateX($topDeg);
+					-webkit-transform : rotateX($topDeg);
+					top : $fixOffset; background : #aaf;
+				}
+
+				.bottom {
+					transform : rotateX(360 - $topDeg);
+					-webkit-transform : rotateX(360 - $topDeg);
+					bottom : $fixOffset; background : #eef;
+				}
+			}
+		}
+	}
+}

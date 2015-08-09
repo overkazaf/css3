@@ -1,0 +1,32 @@
+$height : 120px;
+$defaultDeg : 45deg;
+$bgcolor : #09f;
+$time : .5s;
+
+.container {
+	width : 400px;
+
+	margin : 100px auto;
+	perspective : 600px;
+	-webkit-perspective : 600px;
+
+	.card {
+		cursor : pointer;
+		width : 400px;
+		height : 400px;
+		background : $bgcolor;
+		border-radius: 5px;
+		box-shadow: 0 0 20px #22f;
+	
+		transform : rotateY($defaultDeg) translate(60px, 0px);
+		-webkit-transform : rotateY($defaultDeg) translate(60px, 0px);
+		
+		transition : all $time ease-in-out;
+		-webkit-transition : all $time ease-in-out;
+
+		&:hover {
+			transform : rotateY(0deg) translate(-120px,0px);
+			-webkit-transform :rotateY(0deg) translate(-120px,0px);
+		}
+	}
+}
