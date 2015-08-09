@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style type="text/css">
+	.demo {
+	  margin : 100px auto;
+	  perspective: 1600px;
+	  -webkit-perspective: 1600px;
+	  -moz-perspective: 1600px;
+	  -o-perspective: 1600px;
+	  -ms-perspective: 1600px;
+	  
+	  -webkit-perspective-origin: 50% 50%;
+	}
+
+	#cube{
+		position: relative;
+		margin: 0 auto;
+		height: 200px;
+		width: 200px;
+		transition: transform 4s linear;
+		-webkit-transition: -webkit-transform 4s linear;
+		-moz-transition: -moz-transform 4s linear;
+		-ms-transition: -webkit-transform 4s linear;
+		-o-transition: -moz-transform 4s linear;
+		
+		transform-style: preserve-3d;
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+	}
+
+	.cube {
+	  position: absolute;
+	  height: 160px;
+	  width: 160px;
+	  padding: 20px;
+	  border:2px solid #aaa;
+	  background-color: rgba(0, 90, 255, 0.7);
+	}
+
+	#cube .face-u  {
+	  transform: rotateX(90deg) translateZ(100px);
+	  -moz-transform: rotateX(90deg) translateZ(100px);
+	  -webkit-transform: rotateX(90deg) translateZ(100px);
+	  -ms-transform: rotateX(90deg) translateZ(100px);
+	  -o-transform: rotateX(90deg) translateZ(100px);
+	}
+
+	#cube .face-f {
+	  background:#4e0;
+	  transform: translateZ(100px);
+	  -moz-transform: translateZ(100px);
+	  -webkit-transform: translateZ(100px);
+	  -ms-transform: translateZ(100px);
+	  -o-transform: translateZ(100px);
+	}
+
+	#cube .face-r {
+	   background:#a40;
+	  transform: rotateY(90deg) translateZ(100px);
+	  -moz-transform: rotateY(90deg) translateZ(100px);
+	  -ms-transform: rotateY(90deg) translateZ(100px);
+	  -o-transform: rotateY(90deg) translateZ(100px);
+	  -webkit-transform: rotateY(90deg) translateZ(100px);
+	}
+
+	#cube .face-b {
+	   background:#eef;
+	  transform: rotateY(180deg) translateZ(100px);
+	  -moz-transform: rotateY(180deg) translateZ(100px);
+	  -webkit-transform: rotateY(180deg) translateZ(100px);
+	  -ms-transform: rotateY(180deg) translateZ(100px);
+	  -o-transform: rotateY(180deg) translateZ(100px);
+	}
+
+	#cube .face-l {
+	   background:#baff00;
+	  transform: rotateY(-90deg) translateZ(100px);
+	  -moz-transform: rotateY(-90deg) translateZ(100px);
+	  -webkit-transform: rotateY(-90deg) translateZ(100px);
+	  -ms-transform: rotateY(-90deg) translateZ(100px);
+	  -o-transform: rotateY(-90deg) translateZ(100px);
+	}
+
+	#cube .face-d {
+		background:#4198ce;
+	  transform: rotateX(-90deg) translateZ(100px) rotate(180deg);
+	  -webkit-transform: rotateX(-90deg) translateZ(100px) rotate(180deg);
+	  -moz-transform: rotateX(-90deg) translateZ(100px) rotate(180deg);
+	  -ms-transform: rotateX(-90deg) translateZ(100px) rotate(180deg);
+	  -o-transform: rotateX(-90deg) translateZ(100px) rotate(180deg);
+	}
+</style>
+
+<script type="text/javascript">
+	var xAngle = 0, yAngle = 0;
+	document.addEventListener('keydown', function(e) {
+	  switch(e.keyCode) {
+
+	    case 37: // left
+	      yAngle -= 90;
+	      break;
+
+	    case 38: // up
+	      xAngle += 90;
+	      break;
+
+	    case 39: // right
+	      yAngle += 90;
+	      break;
+
+	    case 40: // down
+	      xAngle -= 90;
+	      break;
+	  };
+	 rotateCube();
+	}, false);
+
+	function rotateCube() {
+		document.getElementById('cube').style.webkitTransform = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
+		document.getElementById('cube').style.transform = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
+		document.getElementById('cube').style.mozTransform = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
+		document.getElementById('cube').style.msTransform = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
+		document.getElementById('cube').style.oTransform = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
+	}
+
+	var timer = setInterval(function (){
+		var rnd = [-1, 1],
+			delX = rnd[Math.floor(Math.random(1))] * 90,
+			delY = rnd[Math.floor(Math.random(1))] * 90;
+
+		xAngle += delX;
+		yAngle += delY;
+		rotateCube();
+	}, 40600);
+</script>
+</head>
+<body>
+	<div class="demo">
+		<div id="cube">
+			<div class="cube face-b">b</div>
+			<div class="cube face-f">f</div>
+			<div class="cube face-u">u</div>
+			<div class="cube face-d">d</div>
+			<div class="cube face-l">l</div>
+			<div class="cube face-r">r</div>
+		</div>
+	</div>
+</body>
+</html>
