@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style type="text/css">
+		.container {
+			position:absolute;
+			left : 100px; top:200px;
+			margin : 100px auto;
+			perspective : 1200px;
+			-webkit-transform-origin: 50% 50%;
+		}
+
+		#cube {
+			position: relative;
+			margin : 0 auto;
+			width : 140px;
+			height : 140px;
+
+			transition: all 2s linear;
+			-webkit-transition: all 2s linear;
+			-webkit-transform-style: preserve-3d;
+		}
+
+		.face {
+			position:absolute;
+			height:100px;
+			width:100px;
+			padding:50px;
+			background:rgba(60, 60, 60, 0.6);
+		}
+
+		.face-f{
+			transform: translateZ(100px);
+		}
+
+		.face-b{
+			transform:rotateY(180deg) translateZ(100px);
+		}
+
+		.face-l{
+			transform:rotateY(-90deg) translateZ(100px);
+		}
+
+		.face-r{
+			transform:rotateY(90deg) translateZ(100px);
+		}
+
+		.face-u{
+			transform:rotateX(90deg) translateZ(100px);
+		}
+
+		.face-d{
+			transform:rotateX(-90deg) translateZ(100px);
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		xAngle = 0,
+		yAngle = 0;
+
+		document.addEventListener('keyup', function (ev){
+			switch(ev.keyCode){
+				case 37 :
+					yAngle -= 90;
+					break;
+				case 38 :
+					xAngle += 90;
+					break;
+				case 39 :
+					yAngle += 90;
+					break;
+				case 40 :
+					xAngle -= 90;
+					break;
+			}
+
+			document.getElementById('cube').style.webkitTransform = 'rotateX(' + xAngle + 'deg) rotateY(' + yAngle + 'deg)';
+		}, false);
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div id="cube">
+			<div class="face face-f">f</div>
+			<div class="face face-b">b</div>
+			<div class="face face-l">l</div>
+			<div class="face face-r">r</div>
+			<div class="face face-u">u</div>
+			<div class="face face-d">d</div>
+		</div>
+	</div>
+</body>
+</html>
