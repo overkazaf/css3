@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		var svgns = "http://www.w3.org/2000/svg"; 
+
+		function makeShape(evt) { 
+			if ( window.svgDocument == null ) {
+				evt = evt || window.event;
+				var target = evt.target || evt.srcElement;
+				svgDocument = target.ownerDocument; 
+			}
+			var shape = svgDocument.createElementNS(svgns, "circle"); 
+				shape.setAttributeNS(null, "cx", 25); 
+				shape.setAttributeNS(null, "cy", 25); 
+				shape.setAttributeNS(null, "r", 20);
+				shape.setAttributeNS(null, "fill", "green"); 
+				svgDocument.documentElement.appendChild(shape); 
+		}
+
+		window.onload = function (){
+			makeShape();
+		}
+	</script>
+</html>
