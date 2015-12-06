@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="c" width="1200" height="500" style="margin:30px auto;border:1px dotted #09f;"></canvas>
+	<script type="text/javascript">
+		window.onload = function() {
+			var c = document.getElementById('c');
+			if (c.getContext) {
+				var ctx =  c.getContext('2d');
+				ctx.strokeStyle = 'blue'; // 描边
+				ctx.fillStyle = 'rgba(0, 144, 255, 0.5)'; // 填充
+				ctx.fillRect(0, 0, 100, 100);
+				
+				ctx.fillStyle = 'rgba(255, 0, 255, 0.5)';
+				ctx.fillRect(50, 50, 150, 150);
+				ctx.strokeRect(50, 50, 150, 150);
+
+				ctx.strokeStyle = '#f00';
+				ctx.beginPath();
+				
+				ctx.arc(200, 200, 50, 0, 2*Math.PI, false)
+				ctx.moveTo(200, 200);
+				ctx.lineTo(220, 225);
+
+				if (ctx.isPointInPath(200, 205)) {
+					// alert('inside');
+				}
+
+				ctx.font = 'bold 28px Arial';
+				ctx.textAlign = 'center';
+				ctx.baseLine = 'middle';
+
+				ctx.strokeText('hello world', 150, 300);
+				ctx.strokeStyle = 'gray';
+				ctx.translate(100, 100);
+				//ctx.rotate(1);
+				ctx.strokeText('hello world', 185, 345);
+
+
+				// 绘制阴影
+				ctx.shadowOffsetX = 5;
+				ctx.shadowOffsetY = 5;
+				ctx.shadowBlur = 10;
+				ctx.shadowColor ="rgba(0,0,255, 0.8)";
+				ctx.fillStyle ="rgba(128,128,128, 0.8)";
+				ctx.fillRect(200, 100, 300, 200);
+
+				ctx.stroke();
+
+
+				var gradient = ctx.createLinearGradient(330, 30, 380, 330);
+				gradient.addColorStop(0, '#09f');
+				gradient.addColorStop(0.5, '#03f');
+				gradient.addColorStop(0, '#000');
+
+				ctx.fillStyle = gradient;
+				ctx.fillRect(330, 30, 380, 130);
+			}
+		};
+	</script>
+</body>
+</html>
