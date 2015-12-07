@@ -6,11 +6,24 @@
 	<script type="text/javascript" src="filters.js"></script>
 	<script type="text/javascript">
 		window.onload = function (){
+			var blur = [1/9, 1/9, 1/9,
+					    1/9, 1/9, 1/9,
+						1/9, 1/9, 1/9];
 
+			var sharp = [0, -1,  0,
+						    -1,  5, -1,
+						     0, -1,  0]
+			var pixels = Filters.filterImage(Filters.threshold, document.images[0], 90);
+			var c = document.getElementsByTagName('canvas')[0];
+			if (c.getContext) {
+				var ctx = c.getContext('2d');
+				ctx.putImageData(pixels, 0,0);
+			}
 		};
 	</script>
 </head>
 <body>
-	<img src="" />
+	<img src="1.png"/>
+	<br />
 </body>
 </html>
