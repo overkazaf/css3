@@ -4,7 +4,26 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script type="text/javascript">
-
+	var EventUtil = {
+		add : function (obj, type, fn){
+			if (obj.addEventListener) {
+				obj.addEventListener(type, fn, false);
+			} else if (obj.attachEvent) {
+				obj.attachEvent('on' + type, fn);
+			} else {
+				obj['on' + type] = fn;
+			}
+		},
+		remove : function (obj, type, fn){
+			if (obj.removeEventListener) {
+				obj.removeEventListener(type, fn);
+			} else if (obj.detachEvent) {
+				obj.detachEvent('on' + type, fn);
+			} else {
+				obj['on' + type] = null;
+			}
+		}
+	};
 	window.onload = function (){
 		var gFrame = document.getElementById('googleFrame');
 		var gWin = gFrame.contentWindow || gFrame.contentDocument;
@@ -12,8 +31,12 @@
 		var person = {
 			name : 'John Doe'
 		};
+		// 向iframe发送序列化的person
 		gWin.postMessage(JSON.stringify(person), 'http://localhost:8080');
 
+		EventUtil.add(window, 'message', function (event) {
+			alert(event.data);
+		});
 	};
 	</script>
 </head>

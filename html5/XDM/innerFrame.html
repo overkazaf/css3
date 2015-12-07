@@ -28,7 +28,7 @@
 		if (event.origin == 'http://localhost:8080') {
 			var pre = document.getElementById('pre');
 			pre.innerHTML = event.data;
-			console.log(JSON.parse(event.data));
+			event.source.postMessage("Received!", "http://localhost:8080");
 		}
 	});
 	</script>

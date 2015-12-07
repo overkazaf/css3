@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+
+		
+		function dragstart (ev) {
+			ev.dataTransfer.setData('id', ev.target.id);
+		}
+
+		function allowDrop (ev) {
+			ev.preventDefault();
+		}
+
+		function drop (ev){
+			ev.preventDefault();
+			var id = ev.dataTransfer.getData('id');
+			//alert(document.getElementById(id));
+			document.getElementById('droptarget').appendChild(document.getElementById(id));
+		}
+		window.onload = function (){
+			var droptarget = document.getElementById('droptarget');
+			var oP = document.getElementsByTagName('p')[0];
+
+			
+		}
+	</script>
+</head>
+<body>
+	<h2>Hello World</h2>
+	<div id="ppp" draggable="true" ondragstart="dragstart(event)" style="width:200px;height:200px;background:#09f;">bbbb</div>
+	<div id="droptarget" ondragover="allowDrop(event)" ondrop="drop(event)" style="width:400px;height: 400px;border:1px dotted #ff0;margin:100px auto;"></div>
+</body>
+</html>
