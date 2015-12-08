@@ -52,6 +52,10 @@
 				//console.log(dom);
 				dom.innerHTML +=  utils.nextLineNumber() + ' : ' + msg + '<br />';
 			},
+			success : function (msg) {
+				var msg = '<b style="color:green">' + msg + '</b>';
+				this.log(msg);
+			},
 			warn : function (msg) {
 				var msg = '<b style="color:yellow">' + msg + '</b>';
 				this.log(msg);

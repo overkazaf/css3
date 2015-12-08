@@ -12,8 +12,10 @@
 			++cnt;
 			if (cnt % 3 === 0) {
 				logger.error('fuckyou');
-			} else {
+			} else if (cnt % 4 === 0){
 				logger.warn('fuckyou later');
+			} else {
+				logger.success('kid\'s stuff');
 			}
 
 		}, 3000)
